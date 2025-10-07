@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8"> <!-- ترميز الصفحة -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- لتوافق الموبايل -->
+<title>نظام ادارة الصيدلية</title>
+<style>
+/* تنسيق عام للصفحة */
+body{
+    font-family:Tahoma,Arial,sans-serif; /* خط الصفحة */
+    background:#f4f6f8; /* لون الخلفية */
+    margin:0;
+    direction:rtl; /* اتجاه النص من اليمين لليسار */
+    text-align:center;
+    color:#333;
+}
+
+/* تنسيق الهيدر والفوتر */
+header,footer{
+    background:#27ae60;
+    color:#fff;
+    padding:5px;
+}
+
+/* شريط التنقل */
+nav{
+    background:#219150;
+    padding:5px;
+}
+nav a{
+    color:#fff;
+    margin:0 1px;
+    text-decoration:none;
+    font-weight:bold;
+}
+nav a:hover{
+    color:#ffe600; /* تأثير التحويم على الروابط */
+}
+
+/* تنسيق الأقسام */
+.section{
+    background:#fff;
+    padding:5px;
+    margin:15px auto;
+    width:90%;
+    max-width:600px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+/* قائمة التفاصيل القابلة للطي */
+details summary{
+    cursor:pointer;
+    padding:6px 10px;
+    background:#27ae60;
+    color:#fff;
+    border-radius:6px;
+    display:inline-block;
+    margin-bottom:18px;
+}
+details[open] summary{
+    background:#219150;
+}
+
+/* تنسيق الجداول */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    border:1px solid #ddd;
+    padding:8px;
+}
+th{
+    background:#27ae60;
+    color:#fff;
+}
+
+/* مربع إجمالي الفاتورة */
+.total{
+    background:#219150;
+    color:#fff;
+    padding:8px;
+    border-radius:6px;
+    display:inline-block;
+    margin-top:10px;
+}
+
+/* نماذج الإدخال */
+form{
+    margin-top:15px;
+    text-align:right;
+}
+input[type=text], input[type=number], input[type=tel]{
+    width:90%;
+    padding:8px;
+    margin:5px 0;
+    border:3px solid #ccc;
+    border-radius:15px;
+}
+input[type=submit]{
+    background:#27ae60;
+    color:#fff;
+    padding:8px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+input[type=submit]:hover{
+    background:#219150;
+}
+</style>
+</head>
+<body>
+
+<!-- رأس الصفحة -->
+<header>
+    <h1>💊 صيدلية الشفاء</h1>
+</header>
+
+<!-- شريط التنقل -->
+<nav>
+ <a href="#meds">الأدوية</a>
+ <a href="#clients">العملاء</a>
+ <a href="#invoice">الفواتير</a>
+</nav>
+
+<main>
+<!-- قسم الأدوية -->
+<section id="meds" class="section">
+<h2>الأدوية</h2>
+
+<!-- جدول عرض الأدوية مع إمكانية الإخفاء/الفتح -->
+<details>
+    <summary>عرض القائمة</summary>
+    <table>
+        <tr><th>الدواء</th><th>السعر</th></tr>
+        <tr><td>باراسيتامول</td><td>500</td></tr>
+        <tr><td>أموكسيسيلين</td><td>1200</td></tr>
+        <tr><td>إيبوبروفين</td><td>700</td></tr>
+    </table>
+</details>
+
+<!-- نموذج إضافة دواء جديد -->
+<h3>➕ إضافة دواء جديد</h3>
+<form>
+  <label>اسم الدواء:</label><br>
+  <input type="text" name="drug" placeholder="أدخل اسم الدواء"><br>
+  <label>السعر:</label><br>
+  <input type="number" name="price" placeholder="أدخل السعر"><br>
+  <input type="submit" value="إضافة">
+</form>
+</section>
+
+<!-- قسم العملاء -->
+<section id="clients" class="section">
+<h2>العملاء</h2>
+
+<!-- جدول عرض العملاء مع إمكانية الإخفاء/الفتح -->
+<details>
+    <summary>عرض القائمة</summary>
+    <table>
+        <tr><th>الاسم</th><th>الهاتف</th></tr>
+        <tr><td>أحمد</td><td>777777777</td></tr>
+        <tr><td>سارة</td><td>733333333</td></tr>
+    </table>
+</details>
+
+<!-- نموذج إضافة عميل -->
+<section id="add-client" class="section">
+  <h2>إضافة عميل</h2>
+  <form>
+    <label>اسم العميل:</label><br>
+    <input type="text" name="client" placeholder="ادخل اسم العميل"><br><br>
+
+    <label>رقم الهاتف:</label><br>
+    <input type="tel" name="phone" placeholder="ادخل رقم الهاتف"><br><br>
+
+    <button type="submit">➕ إضافة</button>
+  </form>
+</section>
+
+<!-- قسم الفواتير -->
+<section id="invoice" class="section">
+<h2>الفاتورة</h2>
+
+<!-- جدول عرض الفاتورة -->
+ <details>
+    <summary>عرض الفاتورة</summary>
+    <table>
+        <tr><th>الدواء</th><th>السعر</th></tr>
+        <tr><td>باراسيتامول</td><td>500</td></tr>
+        <tr><td>أموكسيسيلين</td><td>1200</td></tr>
+    </table>
+    <div class="total">الإجمالي: 1700</div>
+</details>
+</section>
+</main>
+<!-- تذييل الصفحة -->
+<footer>
+    <p>© 2025 صيدلية الشفاء</p>
+</footer>
+
+</body>
+</html>
